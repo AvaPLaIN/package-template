@@ -20,10 +20,8 @@ jobs:
           cache: "pnpm"
 
       - run: pnpm install --frozen-lockfile
-      - name: Create Release Pull Request or Publish
+      - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
           publish: pnpm run build
-        env:
-          GITHUB_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
